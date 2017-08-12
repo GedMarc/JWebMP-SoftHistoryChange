@@ -31,118 +31,118 @@ import za.co.mmagon.logger.LogFactory;
  * @author Marc Magon
  */
 @ComponentInformation(name = "Soft History Changer", description = "Instantly enable url changes without changing the form. No hash-bang required.",
-                      url = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange", wikiUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange/wiki")
+		url = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange", wikiUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange/wiki")
 public abstract class SoftHistoryChangeAdapter extends ClickAdapter
-        implements GlobalEvents
+		implements GlobalEvents
 {
 
-    /**
-     * Logger for the Component
-     */
-    private static final java.util.logging.Logger LOG = LogFactory.getInstance().getLogger("SoftHistoryChangeAdapter");
-    private static final long serialVersionUID = 1L;
+	/**
+	 * Logger for the Component
+	 */
+	private static final java.util.logging.Logger LOG = LogFactory.getInstance().getLogger("SoftHistoryChangeAdapter");
+	private static final long serialVersionUID = 1L;
 
-    private String queryParameters;
-    private String documentTitle;
-    private String dataObject;
+	private String queryParameters;
+	private String documentTitle;
+	private String dataObject;
 
-    /**
-     * Performs a click
-     *
-     * @param component            The component this click is going to be acting on
-     * @param queryParameterString
-     */
-    public SoftHistoryChangeAdapter(Component component, String queryParameterString)
-    {
-        super(component);
-        setComponent(component);
-        queryParameters = queryParameterString;
-    }
+	/**
+	 * Performs a click
+	 *
+	 * @param component            The component this click is going to be acting on
+	 * @param queryParameterString
+	 */
+	public SoftHistoryChangeAdapter(Component component, String queryParameterString)
+	{
+		super(component);
+		setComponent(component);
+		queryParameters = queryParameterString;
+	}
 
-    /**
-     * Gets the query string associated
-     *
-     * @return
-     */
-    public String getQueryParameters()
-    {
-        return queryParameters;
-    }
+	/**
+	 * Gets the query string associated
+	 *
+	 * @return
+	 */
+	public String getQueryParameters()
+	{
+		return queryParameters;
+	}
 
-    /**
-     * Sets the query string associated
-     *
-     * @param queryParameters
-     */
-    public void setQueryParameters(String queryParameters)
-    {
-        this.queryParameters = queryParameters;
-    }
+	/**
+	 * Sets the query string associated
+	 *
+	 * @param queryParameters
+	 */
+	public void setQueryParameters(String queryParameters)
+	{
+		this.queryParameters = queryParameters;
+	}
 
-    /**
-     * Sets the document title
-     *
-     * @return
-     */
-    public String getDocumentTitle()
-    {
-        return documentTitle;
-    }
+	/**
+	 * Sets the document title
+	 *
+	 * @return
+	 */
+	public String getDocumentTitle()
+	{
+		return documentTitle;
+	}
 
-    /**
-     * Sets the document title
-     *
-     * @param documentTitle
-     */
-    public void setDocumentTitle(String documentTitle)
-    {
-        this.documentTitle = documentTitle;
-    }
+	/**
+	 * Sets the document title
+	 *
+	 * @param documentTitle
+	 */
+	public void setDocumentTitle(String documentTitle)
+	{
+		this.documentTitle = documentTitle;
+	}
 
-    /**
-     * Gets the data object
-     *
-     * @return
-     */
-    public String getDataObject()
-    {
-        return dataObject;
-    }
+	/**
+	 * Gets the data object
+	 *
+	 * @return
+	 */
+	public String getDataObject()
+	{
+		return dataObject;
+	}
 
-    /**
-     * Sets the data object
-     *
-     * @param dataObject
-     */
-    public void setDataObject(String dataObject)
-    {
-        this.dataObject = dataObject;
-    }
+	/**
+	 * Sets the data object
+	 *
+	 * @param dataObject
+	 */
+	public void setDataObject(String dataObject)
+	{
+		this.dataObject = dataObject;
+	}
 
-    @Override
-    public void onClick(AjaxCall call, AjaxResponse response)
-    {
-        response.getFeatures().add(new Feature("change history url")
-        {
-            private static final long serialVersionUID = 1L;
+	@Override
+	public void onClick(AjaxCall call, AjaxResponse response)
+	{
+		response.getFeatures().add(new Feature("change history url")
+		{
+			private static final long serialVersionUID = 1L;
 
-            @Override
-            public StringBuilder renderJavascript()
-            {
-                return new StringBuilder().append("window.history.pushState("
-                        + (dataObject == null ? "null" : "'" + dataObject + "'") + ", "
-                        + (documentTitle == null ? "null" : "'" + documentTitle + "'") + ", '?" + queryParameters + "');");
-            }
-        });
-        onUrlChange(call, response);
-    }
+			@Override
+			public StringBuilder renderJavascript()
+			{
+				return new StringBuilder().append("window.history.pushState("
+						                                  + (dataObject == null ? "null" : "'" + dataObject + "'") + ", "
+						                                  + (documentTitle == null ? "null" : "'" + documentTitle + "'") + ", '?" + queryParameters + "');");
+			}
+		});
+		onUrlChange(call, response);
+	}
 
-    public abstract void onUrlChange(AjaxCall call, AjaxResponse response);
+	public abstract void onUrlChange(AjaxCall call, AjaxResponse response);
 
-    @Override
-    public void fireEvent(AjaxCall call, AjaxResponse response)
-    {
-        onClick(call, response);
-    }
+	@Override
+	public void fireEvent(AjaxCall call, AjaxResponse response)
+	{
+		onClick(call, response);
+	}
 
 }

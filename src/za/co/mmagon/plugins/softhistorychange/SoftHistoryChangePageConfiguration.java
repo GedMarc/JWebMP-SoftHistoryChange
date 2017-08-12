@@ -23,7 +23,6 @@
  */
 package za.co.mmagon.plugins.softhistorychange;
 
-import java.util.logging.Logger;
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.Page;
 import za.co.mmagon.jwebswing.PageConfigurator;
@@ -32,61 +31,61 @@ import za.co.mmagon.jwebswing.plugins.PluginInformation;
 import za.co.mmagon.jwebswing.plugins.jquery.JQueryPageConfigurator;
 import za.co.mmagon.logger.LogFactory;
 
+import java.util.logging.Logger;
+
 /**
- *
  * @author GedMarc
  * @since 15 Feb 2017
- *
  */
 @PluginInformation(pluginName = "Soft History Changer",
-                   pluginUniqueName = "soft-history-changer",
-                   pluginDescription = "This plugin assists with changing the history url without doing a page refresh. It is especially useful in that it allows for deep linking very simply.",
-                   pluginVersion = "0.1",
-                   pluginDependancyUniqueIDs = "jquery,angular",
-                   pluginCategories = "browser config, history, url",
-                   pluginSubtitle = "Instantly allow deep linking with this little gadget!",
-                   pluginGitUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange.git",
-                   pluginSourceUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange.git",
-                   pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange/wiki",
-                   pluginOriginalHomepage = "http://www.jwebswing.com",
-                   pluginDownloadUrl = "",
-                   pluginIconUrl = "",
-                   pluginIconImageUrl = "",
-                   pluginLastUpdatedDate = "2017/04/08"
+		pluginUniqueName = "soft-history-changer",
+		pluginDescription = "This plugin assists with changing the history url without doing a page refresh. It is especially useful in that it allows for deep linking very simply.",
+		pluginVersion = "0.1",
+		pluginDependancyUniqueIDs = "jquery,angular",
+		pluginCategories = "browser config, history, url",
+		pluginSubtitle = "Instantly allow deep linking with this little gadget!",
+		pluginGitUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange.git",
+		pluginSourceUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange.git",
+		pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange/wiki",
+		pluginOriginalHomepage = "http://www.jwebswing.com",
+		pluginDownloadUrl = "",
+		pluginIconUrl = "",
+		pluginIconImageUrl = "",
+		pluginLastUpdatedDate = "2017/04/08"
 )
 public class SoftHistoryChangePageConfiguration extends PageConfigurator
 {
 
-    private static final long serialVersionUID = 1L;
-    private static final Logger log = LogFactory.getInstance().getLogger("SoftHistoryPageConfiguration");
-    public static final String SoftHistoryEnabled = "softhistoryenabled-enabled";
+	public static final String SoftHistoryEnabled = "softhistoryenabled-enabled";
+	private static final long serialVersionUID = 1L;
+	private static final Logger log = LogFactory.getInstance().getLogger("SoftHistoryPageConfiguration");
 
-    public SoftHistoryChangePageConfiguration()
-    {
+	public SoftHistoryChangePageConfiguration()
+	{
 
-    }
+	}
 
-    @Override
-    public Page configure(Page page)
-    {
-        if (!page.isConfigured())
-        {
-            JQueryPageConfigurator.setRequired(page.getBody(), true);
-            AngularPageConfigurator.setRequired(page.getBody(), true);
+	/**
+	 * Sets the component as font awesome required to build
+	 *
+	 * @param component
+	 * @param required
+	 */
+	public static void setRequired(Component component, boolean required)
+	{
+		component.getProperties().put(SoftHistoryEnabled, required);
+	}
 
-            //page.getAngular().getAngularDirectives().add(new SoftHistoryChangeDirective());
-        }
-        return page;
-    }
+	@Override
+	public Page configure(Page page)
+	{
+		if (!page.isConfigured())
+		{
+			JQueryPageConfigurator.setRequired(page.getBody(), true);
+			AngularPageConfigurator.setRequired(page.getBody(), true);
 
-    /**
-     * Sets the component as font awesome required to build
-     *
-     * @param component
-     * @param required
-     */
-    public static void setRequired(Component component, boolean required)
-    {
-        component.getProperties().put(SoftHistoryEnabled, required);
-    }
+			//page.getAngular().getAngularDirectives().add(new SoftHistoryChangeDirective());
+		}
+		return page;
+	}
 }
