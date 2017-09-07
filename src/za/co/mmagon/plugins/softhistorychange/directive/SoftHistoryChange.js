@@ -5,8 +5,10 @@ JW_APP_NAME.directive('soft-history-change', function ($parse) {
         var url = $parse(attrs.softHistoryChange);
         var title = $parse(attrs.docTitle);
         var data = $parse(attrs.historyData);
+        var includedParams = $parse(attrs.includedParams);
 
         scope.changeHistory = function (urlPath, title, data) {
+
             var currentUrl = location.protocol + '//' + location.host + location.pathname;
             currentUrl = currentUrl + "?" + urlPath;
             window.history.pushState(data, title === null ? null : title, currentUrl);
