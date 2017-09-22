@@ -125,7 +125,13 @@ public abstract class SoftHistoryChangeAdapter extends ClickAdapter
 		response.getFeatures().add(new Feature("change history url")
 		{
 			private static final long serialVersionUID = 1L;
-
+			
+			@Override
+			protected void assignFunctionsToComponent()
+			{
+			
+			}
+			
 			@Override
 			public StringBuilder renderJavascript()
 			{
