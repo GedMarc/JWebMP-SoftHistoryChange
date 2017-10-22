@@ -23,7 +23,6 @@ import za.co.mmagon.jwebswing.base.ajax.AjaxResponse;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.events.click.ClickAdapter;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
-import za.co.mmagon.logger.LogFactory;
 
 /**
  * Handles all events. Over-ride methods.
@@ -39,7 +38,6 @@ public abstract class SoftHistoryChangeAdapter extends ClickAdapter
 	/**
 	 * Logger for the Component
 	 */
-	private static final java.util.logging.Logger LOG = LogFactory.getInstance().getLogger("SoftHistoryChangeAdapter");
 	private static final long serialVersionUID = 1L;
 
 	private String queryParameters;
@@ -49,7 +47,8 @@ public abstract class SoftHistoryChangeAdapter extends ClickAdapter
 	/**
 	 * Performs a click
 	 *
-	 * @param component            The component this click is going to be acting on
+	 * @param component
+	 * 		The component this click is going to be acting on
 	 * @param queryParameterString
 	 */
 	public SoftHistoryChangeAdapter(Component component, String queryParameterString)
@@ -125,13 +124,13 @@ public abstract class SoftHistoryChangeAdapter extends ClickAdapter
 		response.getFeatures().add(new Feature("change history url")
 		{
 			private static final long serialVersionUID = 1L;
-			
+
 			@Override
 			protected void assignFunctionsToComponent()
 			{
-			
+				//Nothing Needed
 			}
-			
+
 			@Override
 			public StringBuilder renderJavascript()
 			{
@@ -151,4 +150,42 @@ public abstract class SoftHistoryChangeAdapter extends ClickAdapter
 		onClick(call, response);
 	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof SoftHistoryChangeAdapter))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		SoftHistoryChangeAdapter that = (SoftHistoryChangeAdapter) o;
+
+		if (getQueryParameters() != null ? !getQueryParameters().equals(that.getQueryParameters()) : that.getQueryParameters() != null)
+		{
+			return false;
+		}
+		if (getDocumentTitle() != null ? !getDocumentTitle().equals(that.getDocumentTitle()) : that.getDocumentTitle() != null)
+		{
+			return false;
+		}
+		return getDataObject() != null ? getDataObject().equals(that.getDataObject()) : that.getDataObject() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getQueryParameters() != null ? getQueryParameters().hashCode() : 0);
+		result = 31 * result + (getDocumentTitle() != null ? getDocumentTitle().hashCode() : 0);
+		result = 31 * result + (getDataObject() != null ? getDataObject().hashCode() : 0);
+		return result;
+	}
 }
