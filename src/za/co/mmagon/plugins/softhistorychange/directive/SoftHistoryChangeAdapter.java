@@ -24,6 +24,8 @@ import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.events.click.ClickAdapter;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_SINGLE_QUOTES;
+
 /**
  * Handles all events. Over-ride methods.
  *
@@ -135,8 +137,8 @@ public abstract class SoftHistoryChangeAdapter extends ClickAdapter
 			public StringBuilder renderJavascript()
 			{
 				return new StringBuilder().append("window.history.pushState("
-						                                  + (dataObject == null ? "null" : "'" + dataObject + "'") + ", "
-						                                  + (documentTitle == null ? "null" : "'" + documentTitle + "'") + ", '?" + queryParameters + "');");
+						                                  + (dataObject == null ? "null" : STRING_SINGLE_QUOTES + dataObject + STRING_SINGLE_QUOTES) + ", "
+						                                  + (documentTitle == null ? "null" : STRING_SINGLE_QUOTES + documentTitle + STRING_SINGLE_QUOTES) + ", '?" + queryParameters + "');");
 			}
 		});
 		onUrlChange(call, response);
