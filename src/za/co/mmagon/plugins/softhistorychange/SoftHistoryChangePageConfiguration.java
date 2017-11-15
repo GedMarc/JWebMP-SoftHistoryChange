@@ -67,6 +67,7 @@ public class SoftHistoryChangePageConfiguration extends PageConfigurator
 	 * @param component
 	 * @param required
 	 */
+	@SuppressWarnings("unchecked")
 	public static void setRequired(Component component, boolean required)
 	{
 		component.getProperties().put(SoftHistoryEnabled, required);
