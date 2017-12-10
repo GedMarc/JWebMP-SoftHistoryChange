@@ -27,19 +27,17 @@ import za.co.mmagon.jwebswing.base.angular.directives.AngularDirectiveBase;
  */
 public class SoftHistoryChangeDirective extends AngularDirectiveBase
 {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * Constructs a new right click directive based on the angular object passed in
-	 *
-	 * @param angular
 	 */
 	public SoftHistoryChangeDirective()
 	{
 		super("soft-history-change");
 	}
-	
+
 	/**
 	 * Renders the right click directive from the JavaScript file
 	 *
@@ -50,5 +48,5 @@ public class SoftHistoryChangeDirective extends AngularDirectiveBase
 	{
 		return FileTemplates.getFileTemplate(SoftHistoryChangeDirective.class, "SoftHistoryChange").toString();
 	}
-	
+
 }
