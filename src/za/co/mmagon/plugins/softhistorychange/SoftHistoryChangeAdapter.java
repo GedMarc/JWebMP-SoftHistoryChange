@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.plugins.softhistorychange.directive;
+package za.co.mmagon.plugins.softhistorychange;
 
 import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.Feature;
@@ -184,10 +184,6 @@ public abstract class SoftHistoryChangeAdapter extends ClickAdapter
 	@Override
 	public int hashCode()
 	{
-		int result = super.hashCode();
-		result = 31 * result + (getQueryParameters() != null ? getQueryParameters().hashCode() : 0);
-		result = 31 * result + (getDocumentTitle() != null ? getDocumentTitle().hashCode() : 0);
-		result = 31 * result + (getDataObject() != null ? getDataObject().hashCode() : 0);
-		return result;
+		return super.hashCode();
 	}
 }

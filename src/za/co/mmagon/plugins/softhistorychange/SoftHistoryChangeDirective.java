@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package za.co.mmagon.plugins.softhistorychange.directive;
+package za.co.mmagon.plugins.softhistorychange;
 
 import za.co.mmagon.FileTemplates;
 import za.co.mmagon.jwebswing.base.angular.directives.AngularDirectiveBase;
@@ -25,7 +25,7 @@ import za.co.mmagon.jwebswing.base.angular.directives.AngularDirectiveBase;
  * @author GedMarc
  * @since 25 Jun 2016
  */
-public class SoftHistoryChangeDirective extends AngularDirectiveBase
+class SoftHistoryChangeDirective extends AngularDirectiveBase
 {
 
 	private static final long serialVersionUID = 1L;

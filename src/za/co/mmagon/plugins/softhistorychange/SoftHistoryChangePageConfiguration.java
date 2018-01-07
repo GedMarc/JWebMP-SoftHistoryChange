@@ -80,6 +80,7 @@ public class SoftHistoryChangePageConfiguration extends PageConfigurator
 		{
 			JQueryPageConfigurator.setRequired(true);
 			AngularPageConfigurator.setRequired(true);
+			page.getAngular().getAngularDirectives().add(new SoftHistoryChangeDirective());
 		}
 		return page;
 	}
