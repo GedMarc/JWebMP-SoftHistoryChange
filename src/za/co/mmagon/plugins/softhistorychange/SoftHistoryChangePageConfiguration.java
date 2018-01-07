@@ -76,12 +76,9 @@ public class SoftHistoryChangePageConfiguration extends PageConfigurator
 	@Override
 	public Page configure(Page page)
 	{
-		if (!page.isConfigured())
-		{
-			JQueryPageConfigurator.setRequired(true);
-			AngularPageConfigurator.setRequired(true);
-			page.getAngular().getAngularDirectives().add(new SoftHistoryChangeDirective());
-		}
+		JQueryPageConfigurator.setRequired(true);
+		AngularPageConfigurator.setRequired(true);
+		page.getAngular().getAngularDirectives().add(new SoftHistoryChangeDirective());
 		return page;
 	}
 }
