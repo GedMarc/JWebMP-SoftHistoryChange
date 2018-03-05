@@ -25,7 +25,8 @@ import za.co.mmagon.jwebswing.base.angular.directives.AngularDirectiveBase;
  * @author GedMarc
  * @since 25 Jun 2016
  */
-class SoftHistoryChangeDirective extends AngularDirectiveBase
+public class SoftHistoryChangeDirective
+		extends AngularDirectiveBase
 {
 
 	private static final long serialVersionUID = 1L;
@@ -46,7 +47,8 @@ class SoftHistoryChangeDirective extends AngularDirectiveBase
 	@Override
 	public String renderFunction()
 	{
-		return FileTemplates.getFileTemplate(SoftHistoryChangeDirective.class, "SoftHistoryChange").toString();
+		return FileTemplates.getFileTemplate(SoftHistoryChangeDirective.class, "SoftHistoryChange")
+		                    .toString();
 	}
 
 }

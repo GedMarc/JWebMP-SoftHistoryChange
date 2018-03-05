@@ -23,7 +23,6 @@
  */
 package za.co.mmagon.plugins.softhistorychange;
 
-import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.Page;
 import za.co.mmagon.jwebswing.PageConfigurator;
 import za.co.mmagon.jwebswing.base.angular.AngularPageConfigurator;
@@ -36,7 +35,8 @@ import za.co.mmagon.jwebswing.plugins.jquery.JQueryPageConfigurator;
  */
 @PluginInformation(pluginName = "Soft History Changer",
 		pluginUniqueName = "soft-history-changer",
-		pluginDescription = "This plugin assists with changing the history url without doing a page refresh. It is especially useful in that it allows for deep linking very simply.",
+		pluginDescription = "This plugin assists with changing the history url without doing a page refresh. It is especially useful in "
+				                    + "that it allows for deep linking very simply.",
 		pluginVersion = "0.1",
 		pluginDependancyUniqueIDs = "jquery,angular",
 		pluginCategories = "browser config, history, url",
@@ -48,12 +48,10 @@ import za.co.mmagon.jwebswing.plugins.jquery.JQueryPageConfigurator;
 		pluginDownloadUrl = "",
 		pluginIconUrl = "",
 		pluginIconImageUrl = "",
-		pluginLastUpdatedDate = "2017/04/08"
-)
-public class SoftHistoryChangePageConfiguration extends PageConfigurator
+		pluginLastUpdatedDate = "2017/04/08")
+public class SoftHistoryChangePageConfiguration
+		extends PageConfigurator
 {
-
-	public static final String SoftHistoryEnabled = "softhistoryenabled-enabled";
 	private static final long serialVersionUID = 1L;
 
 	public SoftHistoryChangePageConfiguration()
@@ -61,24 +59,11 @@ public class SoftHistoryChangePageConfiguration extends PageConfigurator
 		//Nothing Needed
 	}
 
-	/**
-	 * Sets the component as font awesome required to build
-	 *
-	 * @param component
-	 * @param required
-	 */
-	@SuppressWarnings("unchecked")
-	public static void setRequired(Component component, boolean required)
-	{
-		component.getProperties().put(SoftHistoryEnabled, required);
-	}
-
 	@Override
 	public Page configure(Page page)
 	{
 		JQueryPageConfigurator.setRequired(true);
 		AngularPageConfigurator.setRequired(true);
-		page.getAngular().getAngularDirectives().add(new SoftHistoryChangeDirective());
 		return page;
 	}
 }

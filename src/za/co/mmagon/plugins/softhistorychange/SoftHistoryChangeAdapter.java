@@ -31,9 +31,12 @@ import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_SINGLE_QUOTE
  *
  * @author Marc Magon
  */
-@ComponentInformation(name = "Soft History Changer", description = "Instantly enable url changes without changing the form. No hash-bang required.",
-		url = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange", wikiUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange/wiki")
-public abstract class SoftHistoryChangeAdapter extends ClickAdapter
+@ComponentInformation(name = "Soft History Changer",
+		description = "Instantly enable url changes without changing the form. No hash-bang required.",
+		url = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange",
+		wikiUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange/wiki")
+public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapter<J>>
+		extends ClickAdapter
 		implements GlobalEvents
 {
 
@@ -58,6 +61,18 @@ public abstract class SoftHistoryChangeAdapter extends ClickAdapter
 		super(component);
 		setComponent(component);
 		queryParameters = queryParameterString;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
 	}
 
 	/**
@@ -123,24 +138,29 @@ public abstract class SoftHistoryChangeAdapter extends ClickAdapter
 	@Override
 	public void onClick(AjaxCall call, AjaxResponse response)
 	{
-		response.getFeatures().add(new Feature("change history url")
-		{
-			private static final long serialVersionUID = 1L;
+		response.getFeatures()
+		        .add(new Feature("change history url")
+		        {
+			        private static final long serialVersionUID = 1L;
 
-			@Override
-			protected void assignFunctionsToComponent()
-			{
-				//Nothing Needed
-			}
+			        @Override
+			        protected void assignFunctionsToComponent()
+			        {
+				        //Nothing Needed
+			        }
 
-			@Override
-			public StringBuilder renderJavascript()
-			{
-				return new StringBuilder().append("window.history.pushState("
-						                                  + (dataObject == null ? "null" : STRING_SINGLE_QUOTES + dataObject + STRING_SINGLE_QUOTES) + ", "
-						                                  + (documentTitle == null ? "null" : STRING_SINGLE_QUOTES + documentTitle + STRING_SINGLE_QUOTES) + ", '?" + queryParameters + "');");
-			}
-		});
+			        @Override
+			        public StringBuilder renderJavascript()
+			        {
+				        return new StringBuilder().append("window.history.pushState(" + (dataObject == null
+				                                                                         ? "null"
+				                                                                         : STRING_SINGLE_QUOTES + dataObject +
+						                                                                           STRING_SINGLE_QUOTES) + ", " + (
+						        documentTitle == null
+						        ? "null"
+						        : STRING_SINGLE_QUOTES + documentTitle + STRING_SINGLE_QUOTES) + ", '?" + queryParameters + "');");
+			        }
+		        });
 		onUrlChange(call, response);
 	}
 
@@ -152,38 +172,5 @@ public abstract class SoftHistoryChangeAdapter extends ClickAdapter
 		onClick(call, response);
 	}
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof SoftHistoryChangeAdapter))
-		{
-			return false;
-		}
-		if (!super.equals(o))
-		{
-			return false;
-		}
 
-		SoftHistoryChangeAdapter that = (SoftHistoryChangeAdapter) o;
-
-		if (getQueryParameters() != null ? !getQueryParameters().equals(that.getQueryParameters()) : that.getQueryParameters() != null)
-		{
-			return false;
-		}
-		if (getDocumentTitle() != null ? !getDocumentTitle().equals(that.getDocumentTitle()) : that.getDocumentTitle() != null)
-		{
-			return false;
-		}
-		return getDataObject() != null ? getDataObject().equals(that.getDataObject()) : that.getDataObject() == null;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
-	}
 }
