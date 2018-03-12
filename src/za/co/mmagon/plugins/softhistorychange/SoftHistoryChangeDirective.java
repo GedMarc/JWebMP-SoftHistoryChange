@@ -47,7 +47,7 @@ public class SoftHistoryChangeDirective
 	@Override
 	public String renderFunction()
 	{
-		return FileTemplates.getFileTemplate(SoftHistoryChangeDirective.class, "SoftHistoryChange")
+		return FileTemplates.getFileTemplate(SoftHistoryChangeDirective.class, "SoftHistoryChange", "SoftHistoryChange.min.js")
 		                    .toString();
 	}
 

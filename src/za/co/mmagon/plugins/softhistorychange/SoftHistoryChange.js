@@ -1,5 +1,3 @@
-/* global JW_APP_NAME */
-
 JW_APP_NAME.directive('soft-history-change', function ($parse) {
     return function (scope, element, attrs) {
         var url = $parse(attrs.softHistoryChange);
