@@ -16,8 +16,8 @@
  */
 package za.co.mmagon.plugins.softhistorychange;
 
-import za.co.mmagon.jwebswing.Component;
 import za.co.mmagon.jwebswing.Feature;
+import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
 import za.co.mmagon.jwebswing.base.ajax.AjaxCall;
 import za.co.mmagon.jwebswing.base.ajax.AjaxResponse;
 import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
@@ -56,7 +56,7 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 	 * 		The component this click is going to be acting on
 	 * @param queryParameterString
 	 */
-	public SoftHistoryChangeAdapter(Component component, String queryParameterString)
+	public SoftHistoryChangeAdapter(ComponentHierarchyBase component, String queryParameterString)
 	{
 		super(component);
 		setComponent(component);
@@ -136,6 +136,12 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 	}
 
 	@Override
+	public void fireEvent(AjaxCall call, AjaxResponse response)
+	{
+		onClick(call, response);
+	}
+
+	@Override
 	public void onClick(AjaxCall call, AjaxResponse response)
 	{
 		response.getFeatures()
@@ -154,23 +160,15 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 			        {
 				        return new StringBuilder().append("window.history.pushState(" + (dataObject == null
 				                                                                         ? "null"
-				                                                                         : STRING_SINGLE_QUOTES + dataObject +
-						                                                                           STRING_SINGLE_QUOTES) + ", " + (
-						        documentTitle == null
-						        ? "null"
-						        : STRING_SINGLE_QUOTES + documentTitle + STRING_SINGLE_QUOTES) + ", '?" + queryParameters + "');");
+				                                                                         : STRING_SINGLE_QUOTES + dataObject + STRING_SINGLE_QUOTES) + ", " + (documentTitle == null
+				                                                                                                                                               ? "null"
+				                                                                                                                                               : STRING_SINGLE_QUOTES + documentTitle + STRING_SINGLE_QUOTES) + ", '?" + queryParameters + "');");
 			        }
 		        });
 		onUrlChange(call, response);
 	}
 
 	public abstract void onUrlChange(AjaxCall call, AjaxResponse response);
-
-	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
-	{
-		onClick(call, response);
-	}
 
 
 }

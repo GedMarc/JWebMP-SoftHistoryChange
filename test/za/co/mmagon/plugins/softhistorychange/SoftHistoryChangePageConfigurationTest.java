@@ -6,7 +6,6 @@ import za.co.mmagon.FileTemplates;
 import za.co.mmagon.jwebswing.BaseTestClass;
 import za.co.mmagon.jwebswing.Page;
 import za.co.mmagon.jwebswing.base.angular.AngularFeature;
-import za.co.mmagon.jwebswing.base.html.Comment;
 import za.co.mmagon.jwebswing.base.html.Div;
 
 class SoftHistoryChangePageConfigurationTest
@@ -18,7 +17,6 @@ class SoftHistoryChangePageConfigurationTest
 		Page page = new Page();
 		page.getOptions()
 		    .setDynamicRender(false);
-		page.add(new Comment("asdf"));
 		page.getBody()
 		    .add(new Div<>());
 		System.out.println(page.toString(0));
