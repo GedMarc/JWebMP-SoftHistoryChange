@@ -24,7 +24,7 @@ import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
 import za.co.mmagon.jwebswing.events.click.ClickAdapter;
 import za.co.mmagon.jwebswing.plugins.ComponentInformation;
 
-import static za.co.mmagon.jwebswing.utilities.StaticStrings.STRING_SINGLE_QUOTES;
+import static za.co.mmagon.jwebswing.utilities.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.
@@ -144,6 +144,8 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 	@Override
 	public void onClick(AjaxCall call, AjaxResponse response)
 	{
+		onUrlChange(call, response);
+
 		response.getFeatures()
 		        .add(new Feature("change history url")
 		        {
@@ -158,14 +160,36 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 			        @Override
 			        public StringBuilder renderJavascript()
 			        {
-				        return new StringBuilder().append("window.history.pushState(" + (dataObject == null
-				                                                                         ? "null"
-				                                                                         : STRING_SINGLE_QUOTES + dataObject + STRING_SINGLE_QUOTES) + ", " + (documentTitle == null
-				                                                                                                                                               ? "null"
-				                                                                                                                                               : STRING_SINGLE_QUOTES + documentTitle + STRING_SINGLE_QUOTES) + ", '?" + queryParameters + "');");
+				        StringBuilder sb = new StringBuilder("window.history.pushState(");
+				        if (dataObject != null && !dataObject.isEmpty())
+				        {
+					        sb.append(dataObject);
+				        }
+				        else
+				        {
+					        sb.append("null");
+				        }
+				        sb.append(STRING_COMMNA);
+				        if (documentTitle != null && !documentTitle.isEmpty())
+				        {
+					        sb.append(STRING_SINGLE_QUOTES)
+					          .append(documentTitle)
+					          .append(STRING_SINGLE_QUOTES);
+				        }
+				        else
+				        {
+					        sb.append("null");
+				        }
+				        sb.append(STRING_COMMNA);
+				        sb.append(STRING_SINGLE_QUOTES)
+				          .append(CHAR_QUESTIONMARK)
+				          .append(queryParameters)
+				          .append(STRING_SINGLE_QUOTES);
+
+				        sb.append(");");
+				        return sb;
 			        }
 		        });
-		onUrlChange(call, response);
 	}
 
 	public abstract void onUrlChange(AjaxCall call, AjaxResponse response);
