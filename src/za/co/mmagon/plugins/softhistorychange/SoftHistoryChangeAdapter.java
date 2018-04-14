@@ -16,15 +16,15 @@
  */
 package za.co.mmagon.plugins.softhistorychange;
 
-import za.co.mmagon.jwebswing.Feature;
-import za.co.mmagon.jwebswing.base.ComponentHierarchyBase;
-import za.co.mmagon.jwebswing.base.ajax.AjaxCall;
-import za.co.mmagon.jwebswing.base.ajax.AjaxResponse;
-import za.co.mmagon.jwebswing.base.html.interfaces.events.GlobalEvents;
-import za.co.mmagon.jwebswing.events.click.ClickAdapter;
-import za.co.mmagon.jwebswing.plugins.ComponentInformation;
+import com.jwebmp.Feature;
+import com.jwebmp.base.ComponentHierarchyBase;
+import com.jwebmp.base.ajax.AjaxCall;
+import com.jwebmp.base.ajax.AjaxResponse;
+import com.jwebmp.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.events.click.ClickAdapter;
+import com.jwebmp.plugins.ComponentInformation;
 
-import static za.co.mmagon.jwebswing.utilities.StaticStrings.*;
+import static com.jwebmp.utilities.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.
@@ -64,15 +64,15 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return super.equals(o);
-	}
-
-	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
 	}
 
 	/**

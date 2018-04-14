@@ -16,8 +16,8 @@
  */
 package za.co.mmagon.plugins.softhistorychange;
 
-import za.co.mmagon.FileTemplates;
-import za.co.mmagon.jwebswing.base.angular.directives.AngularDirectiveBase;
+import com.jwebmp.FileTemplates;
+import com.jwebmp.base.angular.directives.AngularDirectiveBase;
 
 /**
  * Maps to the angular function of right click
