@@ -17,7 +17,6 @@
 
 package za.co.mmagon.plugins.softhistorychange;
 
-import com.jwebmp.BaseTestClass;
 import com.jwebmp.FileTemplates;
 import com.jwebmp.Page;
 import com.jwebmp.base.angular.AngularFeature;
@@ -26,7 +25,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class SoftHistoryChangePageConfigurationTest
-		extends BaseTestClass
+
 {
 	@Test
 	public void testPageConfig()
