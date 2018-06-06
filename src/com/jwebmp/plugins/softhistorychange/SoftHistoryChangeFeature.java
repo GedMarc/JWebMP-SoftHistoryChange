@@ -1,4 +1,4 @@
-package za.co.mmagon.plugins.softhistorychange;
+package com.jwebmp.plugins.softhistorychange;
 
 import com.jwebmp.Feature;
 import com.jwebmp.htmlbuilder.javascript.JavaScriptPart;

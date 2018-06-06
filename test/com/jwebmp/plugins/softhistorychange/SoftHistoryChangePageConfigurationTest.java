@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package za.co.mmagon.plugins.softhistorychange;
+package com.jwebmp.plugins.softhistorychange;
 
 import com.jwebmp.FileTemplates;
 import com.jwebmp.Page;
