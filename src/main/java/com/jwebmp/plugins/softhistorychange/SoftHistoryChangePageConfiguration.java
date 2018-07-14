@@ -29,7 +29,7 @@ import com.jwebmp.plugins.jquery.JQueryPageConfigurator;
 @PluginInformation(pluginName = "Soft History Changer",
 		pluginUniqueName = "soft-history-changer",
 		pluginDescription = "This plugin assists with changing the history url without doing a page refresh. It is especially useful in "
-				                    + "that it allows for deep linking very simply.",
+		                    + "that it allows for deep linking very simply.",
 		pluginVersion = "0.1",
 		pluginDependancyUniqueIDs = "jquery,angular",
 		pluginCategories = "browser config, history, url",

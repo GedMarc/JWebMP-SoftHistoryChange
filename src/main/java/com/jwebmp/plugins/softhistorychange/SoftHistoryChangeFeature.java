@@ -133,5 +133,4 @@ public class SoftHistoryChangeFeature<O extends JavaScriptPart<O>, J extends Sof
 		return (J) this;
 	}
 
-
 }

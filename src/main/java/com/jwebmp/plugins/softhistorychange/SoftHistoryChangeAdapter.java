@@ -194,5 +194,4 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 
 	public abstract void onUrlChange(AjaxCall call, AjaxResponse response);
 
-
 }
