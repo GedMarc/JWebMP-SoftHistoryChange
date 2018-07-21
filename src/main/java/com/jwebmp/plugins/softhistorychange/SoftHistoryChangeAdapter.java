@@ -16,15 +16,15 @@
  */
 package com.jwebmp.plugins.softhistorychange;
 
-import com.jwebmp.Feature;
-import com.jwebmp.base.ComponentHierarchyBase;
-import com.jwebmp.base.ajax.AjaxCall;
-import com.jwebmp.base.ajax.AjaxResponse;
-import com.jwebmp.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.events.click.ClickAdapter;
-import com.jwebmp.plugins.ComponentInformation;
+import com.jwebmp.core.Feature;
+import com.jwebmp.core.base.ComponentHierarchyBase;
+import com.jwebmp.core.base.ajax.AjaxCall;
+import com.jwebmp.core.base.ajax.AjaxResponse;
+import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.events.click.ClickAdapter;
+import com.jwebmp.core.plugins.ComponentInformation;
 
-import static com.jwebmp.utilities.StaticStrings.*;
+import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.

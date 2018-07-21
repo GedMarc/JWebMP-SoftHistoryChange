@@ -17,10 +17,10 @@
 
 package com.jwebmp.plugins.softhistorychange;
 
-import com.jwebmp.FileTemplates;
-import com.jwebmp.Page;
-import com.jwebmp.base.angular.AngularFeature;
-import com.jwebmp.base.html.Div;
+import com.jwebmp.core.FileTemplates;
+import com.jwebmp.core.Page;
+import com.jwebmp.core.base.angular.AngularFeature;
+import com.jwebmp.core.base.html.Div;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
