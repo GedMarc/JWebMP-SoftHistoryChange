@@ -17,10 +17,10 @@
 package com.jwebmp.plugins.softhistorychange;
 
 import com.jwebmp.core.Page;
-import com.jwebmp.core.PageConfigurator;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
+import com.jwebmp.core.services.IPageConfigurator;
 
 /**
  * @author GedMarc
@@ -43,10 +43,8 @@ import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 		pluginIconImageUrl = "",
 		pluginLastUpdatedDate = "2017/04/08")
 public class SoftHistoryChangePageConfiguration
-		extends PageConfigurator
+		implements IPageConfigurator
 {
-	private static final long serialVersionUID = 1L;
-
 	public SoftHistoryChangePageConfiguration()
 	{
 		//Nothing Needed

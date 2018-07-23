@@ -1,3 +1,6 @@
+import com.jwebmp.core.services.IPageConfigurator;
+import com.jwebmp.plugins.softhistorychange.SoftHistoryChangePageConfiguration;
+
 module com.jwebmp.plugins.softhistorychange {
 
 	exports com.jwebmp.plugins.softhistorychange;
@@ -8,4 +11,7 @@ module com.jwebmp.plugins.softhistorychange {
 
 	requires java.validation;
 	requires java.logging;
+
+	provides IPageConfigurator with SoftHistoryChangePageConfiguration;
+
 }
