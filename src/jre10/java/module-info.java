@@ -13,5 +13,5 @@ module com.jwebmp.plugins.softhistorychange {
 	requires java.logging;
 
 	provides IPageConfigurator with SoftHistoryChangePageConfiguration;
-
+	opens com.jwebmp.plugins.softhistorychange to com.fasterxml.jackson.databind,com.jwebmp.core;
 }
