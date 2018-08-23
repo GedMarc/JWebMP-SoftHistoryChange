@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public class SoftHistoryChangeFeature<O extends JavaScriptPart<O>, J extends SoftHistoryChangeFeature<O, J>>
-		extends Feature<O, J>
+		extends Feature<J, O, J>
 {
 	private String queryParameters;
 	private String documentTitle;

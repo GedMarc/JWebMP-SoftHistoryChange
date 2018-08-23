@@ -24,6 +24,8 @@ import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.events.click.ClickAdapter;
 import com.jwebmp.core.plugins.ComponentInformation;
 
+import javax.validation.constraints.NotNull;
+
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
@@ -151,12 +153,7 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 		        {
 			        private static final long serialVersionUID = 1L;
 
-			        @Override
-			        protected void assignFunctionsToComponent()
-			        {
-				        //Nothing Needed
-			        }
-
+			        @NotNull
 			        @Override
 			        public StringBuilder renderJavascript()
 			        {
@@ -188,6 +185,12 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 
 				        sb.append(");");
 				        return sb;
+			        }
+
+			        @Override
+			        protected void assignFunctionsToComponent()
+			        {
+				        //Nothing Needed
 			        }
 		        });
 	}
