@@ -35,8 +35,8 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
  */
 @ComponentInformation(name = "Soft History Changer",
 		description = "Instantly enable url changes without changing the form. No hash-bang required.",
-		url = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange",
-		wikiUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange/wiki")
+		url = "https://github.com/GedMarc/JWebMP-SoftHistoryChange",
+		wikiUrl = "https://github.com/GedMarc/JWebMP-SoftHistoryChange/wiki")
 public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapter<J>>
 		extends ClickAdapter
 		implements GlobalEvents

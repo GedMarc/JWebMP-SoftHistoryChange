@@ -36,16 +36,16 @@ import javax.validation.constraints.NotNull;
 		pluginDependancyUniqueIDs = "jquery,angular",
 		pluginCategories = "browser config, history, url",
 		pluginSubtitle = "Instantly allow deep linking with this little gadget!",
-		pluginGitUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange.git",
-		pluginSourceUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange.git",
-		pluginWikiUrl = "https://github.com/GedMarc/JWebSwing-SoftHistoryChange/wiki",
+		pluginGitUrl = "https://github.com/GedMarc/JWebMP-SoftHistoryChange.git",
+		pluginSourceUrl = "https://github.com/GedMarc/JWebMP-SoftHistoryChange.git",
+		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-SoftHistoryChange/wiki",
 		pluginOriginalHomepage = "http://www.jwebswing.com",
 		pluginDownloadUrl = "",
 		pluginIconUrl = "",
 		pluginIconImageUrl = "",
 		pluginLastUpdatedDate = "2017/04/08")
 public class SoftHistoryChangePageConfiguration
-		implements IPageConfigurator
+		implements IPageConfigurator<SoftHistoryChangePageConfiguration>
 {
 	/**
 	 * If this configurator is enabled
