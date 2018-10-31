@@ -45,7 +45,7 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 	/**
 	 * Logger for the Component
 	 */
-	private static final long serialVersionUID = 1L;
+
 
 	private String queryParameters;
 	private String documentTitle;
@@ -151,7 +151,7 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 		response.getFeatures()
 		        .add(new Feature("change history url")
 		        {
-			        private static final long serialVersionUID = 1L;
+
 
 			        @NotNull
 			        @Override
