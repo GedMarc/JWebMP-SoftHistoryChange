@@ -20,8 +20,8 @@ import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
+import com.jwebmp.core.base.angular.directives.events.click.ClickEvent;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
-import com.jwebmp.core.events.click.ClickAdapter;
 import com.jwebmp.core.plugins.ComponentInformation;
 
 import javax.validation.constraints.NotNull;
@@ -38,15 +38,13 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 		url = "https://github.com/GedMarc/JWebMP-SoftHistoryChange",
 		wikiUrl = "https://github.com/GedMarc/JWebMP-SoftHistoryChange/wiki")
 public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapter<J>>
-		extends ClickAdapter
+		extends ClickEvent<J>
 		implements GlobalEvents
 {
 
 	/**
 	 * Logger for the Component
 	 */
-
-
 	private String queryParameters;
 	private String documentTitle;
 	private String dataObject;

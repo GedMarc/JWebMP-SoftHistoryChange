@@ -26,7 +26,7 @@ import com.jwebmp.core.base.angular.directives.AngularDirectiveBase;
  * @since 25 Jun 2016
  */
 public class SoftHistoryChangeDirective
-		extends AngularDirectiveBase
+		extends AngularDirectiveBase<SoftHistoryChangeDirective>
 {
 
 
@@ -50,4 +50,9 @@ public class SoftHistoryChangeDirective
 		                    .toString();
 	}
 
+	@Override
+	public boolean enabled()
+	{
+		return SoftHistoryChangePageConfiguration.isEnabled();
+	}
 }
