@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Marc Magon
+ * Copyright (C) 2017 GedMarc
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ import static com.jwebmp.core.utilities.StaticStrings.*;
 /**
  * Handles all events. Over-ride methods.
  *
- * @author Marc Magon
+ * @author GedMarc
  */
 @ComponentInformation(name = "Soft History Changer",
 		description = "Instantly enable url changes without changing the form. No hash-bang required.",
