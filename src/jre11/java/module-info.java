@@ -1,11 +1,3 @@
-import com.jwebmp.core.base.angular.services.IAngularDirective;
-import com.jwebmp.core.services.IPageConfigurator;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions;
-import com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions;
-import com.jwebmp.plugins.softhistorychange.SoftHistoryChangeDirective;
-import com.jwebmp.plugins.softhistorychange.SoftHistoryChangePageConfiguration;
-import com.jwebmp.plugins.softhistorychange.implementations.SoftHistoryChangeExclusionsModule;
-
 module com.jwebmp.plugins.softhistorychange {
 
 	exports com.jwebmp.plugins.softhistorychange;
@@ -19,10 +11,10 @@ module com.jwebmp.plugins.softhistorychange {
 	requires com.jwebmp.guicedinjection;
 	requires com.jwebmp.core.angularjs;
 
-	provides IPageConfigurator with SoftHistoryChangePageConfiguration;
-	provides IGuiceScanJarExclusions with SoftHistoryChangeExclusionsModule;
-	provides IGuiceScanModuleExclusions with SoftHistoryChangeExclusionsModule;
-	provides IAngularDirective with SoftHistoryChangeDirective;
+	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.softhistorychange.SoftHistoryChangePageConfiguration;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.softhistorychange.implementations.SoftHistoryChangeExclusionsModule;
+	provides com.jwebmp.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.softhistorychange.implementations.SoftHistoryChangeExclusionsModule;
+	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.softhistorychange.SoftHistoryChangeDirective;
 
 	opens com.jwebmp.plugins.softhistorychange to com.fasterxml.jackson.databind, com.jwebmp.core;
 }
