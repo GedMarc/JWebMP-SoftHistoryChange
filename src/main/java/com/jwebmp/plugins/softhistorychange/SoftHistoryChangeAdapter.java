@@ -149,8 +149,6 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 		response.getFeatures()
 		        .add(new Feature("change history url")
 		        {
-
-
 			        @NotNull
 			        @Override
 			        public StringBuilder renderJavascript()
