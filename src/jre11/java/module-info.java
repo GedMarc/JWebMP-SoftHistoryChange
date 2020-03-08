@@ -12,7 +12,6 @@ module com.jwebmp.plugins.softhistorychange {
 	requires com.jwebmp.core.angularjs;
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.softhistorychange.SoftHistoryChangePageConfiguration;
-	provides com.guicedee.guicedinjection.interfaces.IGuiceScanJarExclusions with com.jwebmp.plugins.softhistorychange.implementations.SoftHistoryChangeExclusionsModule;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.softhistorychange.implementations.SoftHistoryChangeExclusionsModule;
 	provides com.jwebmp.core.base.angular.services.IAngularDirective with com.jwebmp.plugins.softhistorychange.SoftHistoryChangeDirective;
 
