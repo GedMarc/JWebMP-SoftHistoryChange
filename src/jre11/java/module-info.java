@@ -4,7 +4,6 @@ module com.jwebmp.plugins.softhistorychange {
 
 	requires com.jwebmp.core;
 	requires com.guicedee.logmaster;
-	requires com.fasterxml.jackson.annotation;
 
 	requires java.validation;
 	requires java.logging;
