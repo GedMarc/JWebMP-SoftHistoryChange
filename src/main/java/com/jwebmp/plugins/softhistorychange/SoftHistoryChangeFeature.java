@@ -5,6 +5,7 @@ import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
 
 import javax.validation.constraints.NotNull;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public class SoftHistoryChangeFeature<O extends JavaScriptPart<O>, J extends SoftHistoryChangeFeature<O, J>>

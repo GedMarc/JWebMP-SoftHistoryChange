@@ -26,6 +26,7 @@ import com.jwebmp.core.plugins.ComponentInformation;
 
 import javax.validation.constraints.NotNull;
 
+import static com.guicedee.guicedinjection.json.StaticStrings.*;
 import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
