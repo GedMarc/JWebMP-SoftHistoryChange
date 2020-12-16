@@ -19,6 +19,7 @@ package com.jwebmp.plugins.softhistorychange;
 import com.jwebmp.core.Page;
 import com.jwebmp.core.base.angular.AngularPageConfigurator;
 import com.jwebmp.core.plugins.PluginInformation;
+import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.plugins.jquery.JQueryPageConfigurator;
 import com.jwebmp.core.services.IPageConfigurator;
 
@@ -39,11 +40,16 @@ import jakarta.validation.constraints.NotNull;
 		pluginGitUrl = "https://github.com/GedMarc/JWebMP-SoftHistoryChange.git",
 		pluginSourceUrl = "https://github.com/GedMarc/JWebMP-SoftHistoryChange.git",
 		pluginWikiUrl = "https://github.com/GedMarc/JWebMP-SoftHistoryChange/wiki",
-		pluginOriginalHomepage = "http://www.jwebswing.com",
-		pluginDownloadUrl = "",
+		pluginOriginalHomepage = "http://www.jwebmp.com",
+		pluginDownloadUrl = "https://mvnrepository.com/artifact/com.jwebmp.plugins.javascript/jwebmp-soft-history-change",
 		pluginIconUrl = "",
 		pluginIconImageUrl = "",
-		pluginLastUpdatedDate = "2017/04/08")
+		pluginLastUpdatedDate = "2017/04/08",
+		pluginGroupId = "com.jwebmp.plugins.javascript",
+		pluginArtifactId = "jwebmp-soft-history-change",
+		pluginModuleName = "com.jwebmp.plugins.softhistorychange",
+		pluginStatus = PluginStatus.Released
+)
 public class SoftHistoryChangePageConfiguration
 		implements IPageConfigurator<SoftHistoryChangePageConfiguration>
 {
