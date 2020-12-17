@@ -30,7 +30,7 @@ class SoftHistoryChangePageConfigurationTest
 	@Test
 	public void testPageConfig()
 	{
-		Page page = new Page();
+		Page<?> page = new Page();
 		page.getOptions()
 		    .setDynamicRender(false);
 		page.getBody()
