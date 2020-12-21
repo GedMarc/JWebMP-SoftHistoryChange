@@ -133,5 +133,10 @@ public class SoftHistoryChangeFeature<O extends JavaScriptPart<O>, J extends Sof
 		this.dataObject = dataObject;
 		return (J) this;
 	}
-
+	
+	@Override
+	public @NotNull Integer getSortOrder()
+	{
+		return Integer.MAX_VALUE - 5;
+	}
 }

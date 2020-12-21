@@ -16,18 +16,12 @@
  */
 package com.jwebmp.plugins.softhistorychange;
 
-import com.jwebmp.core.Feature;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.events.click.ClickAdapter;
 import com.jwebmp.core.plugins.ComponentInformation;
-
-import jakarta.validation.constraints.NotNull;
-
-import static com.guicedee.guicedinjection.json.StaticStrings.*;
-import static com.jwebmp.core.utilities.StaticStrings.*;
 
 /**
  * Handles all events. Over-ride methods.
@@ -42,13 +36,7 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 		extends ClickAdapter<J>
 		implements GlobalEvents
 {
-
-	/**
-	 * Logger for the Component
-	 */
-	private String queryParameters;
-	private String documentTitle;
-	private String dataObject;
+	private final SoftHistoryChangeFeature<?, ?> feature = new SoftHistoryChangeFeature<>();
 
 	/**
 	 * Performs a click
@@ -61,9 +49,14 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 	{
 		super(component);
 		setComponent(component);
-		queryParameters = queryParameterString;
+		getFeatures().add(feature);
 	}
-
+	
+	public SoftHistoryChangeFeature<?, ?> getFeature()
+	{
+		return feature;
+	}
+	
 	@Override
 	public int hashCode()
 	{
@@ -75,123 +68,21 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 	{
 		return super.equals(o);
 	}
-
-	/**
-	 * Gets the query string associated
-	 *
-	 * @return
-	 */
-	public String getQueryParameters()
-	{
-		return queryParameters;
-	}
-
-	/**
-	 * Sets the query string associated
-	 *
-	 * @param queryParameters
-	 */
-	public void setQueryParameters(String queryParameters)
-	{
-		this.queryParameters = queryParameters;
-	}
-
-	/**
-	 * Sets the document title
-	 *
-	 * @return
-	 */
-	public String getDocumentTitle()
-	{
-		return documentTitle;
-	}
-
-	/**
-	 * Sets the document title
-	 *
-	 * @param documentTitle
-	 */
-	public void setDocumentTitle(String documentTitle)
-	{
-		this.documentTitle = documentTitle;
-	}
-
-	/**
-	 * Gets the data object
-	 *
-	 * @return
-	 */
-	public String getDataObject()
-	{
-		return dataObject;
-	}
-
-	/**
-	 * Sets the data object
-	 *
-	 * @param dataObject
-	 */
-	public void setDataObject(String dataObject)
-	{
-		this.dataObject = dataObject;
-	}
-
+	
 	@Override
-	public void fireEvent(AjaxCall call, AjaxResponse response)
+	public void fireEvent(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		onClick(call, response);
 	}
 
 	@Override
-	public void onClick(AjaxCall call, AjaxResponse response)
+	public void onClick(AjaxCall<?> call, AjaxResponse<?> response)
 	{
 		onUrlChange(call, response);
-
 		response.getFeatures()
-		        .add(new Feature("change history url")
-		        {
-			        @NotNull
-			        @Override
-			        public StringBuilder renderJavascript()
-			        {
-				        StringBuilder sb = new StringBuilder("window.history.pushState(");
-				        if (dataObject != null && !dataObject.isEmpty())
-				        {
-					        sb.append(dataObject);
-				        }
-				        else
-				        {
-					        sb.append("null");
-				        }
-				        sb.append(STRING_COMMNA);
-				        if (documentTitle != null && !documentTitle.isEmpty())
-				        {
-					        sb.append(STRING_SINGLE_QUOTES)
-					          .append(documentTitle)
-					          .append(STRING_SINGLE_QUOTES);
-				        }
-				        else
-				        {
-					        sb.append("null");
-				        }
-				        sb.append(STRING_COMMNA);
-				        sb.append(STRING_SINGLE_QUOTES)
-				          .append(CHAR_QUESTIONMARK)
-				          .append(queryParameters)
-				          .append(STRING_SINGLE_QUOTES);
-
-				        sb.append(");");
-				        return sb;
-			        }
-
-			        @Override
-			        protected void assignFunctionsToComponent()
-			        {
-				        //Nothing Needed
-			        }
-		        });
+		        .add(getFeature());
 	}
 
-	public abstract void onUrlChange(AjaxCall call, AjaxResponse response);
+	public abstract void onUrlChange(AjaxCall<?> call, AjaxResponse<?> response);
 
 }
