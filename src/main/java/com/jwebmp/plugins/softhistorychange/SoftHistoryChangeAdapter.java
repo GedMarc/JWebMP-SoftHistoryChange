@@ -20,6 +20,7 @@ import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.ajax.AjaxCall;
 import com.jwebmp.core.base.ajax.AjaxResponse;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.events.click.ClickAdapter;
 import com.jwebmp.core.plugins.ComponentInformation;
 
@@ -45,11 +46,12 @@ public abstract class SoftHistoryChangeAdapter<J extends SoftHistoryChangeAdapte
 	 * 		The component this click is going to be acting on
 	 * @param queryParameterString
 	 */
-	public SoftHistoryChangeAdapter(ComponentHierarchyBase component, String queryParameterString)
+	public SoftHistoryChangeAdapter(IComponentHierarchyBase<?,?> component, String queryParameterString)
 	{
 		super(component);
 		setComponent(component);
 		getFeatures().add(feature);
+		feature.setQueryParameters(queryParameterString);
 	}
 	
 	public SoftHistoryChangeFeature<?, ?> getFeature()
