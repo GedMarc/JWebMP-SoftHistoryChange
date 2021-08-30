@@ -2,36 +2,38 @@ package com.jwebmp.plugins.softhistorychange;
 
 import com.jwebmp.core.Feature;
 import com.jwebmp.core.htmlbuilder.javascript.JavaScriptPart;
-
 import jakarta.validation.constraints.NotNull;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import static com.guicedee.guicedinjection.json.StaticStrings.*;
-import static com.jwebmp.core.utilities.StaticStrings.*;
 
 public class SoftHistoryChangeFeature<O extends JavaScriptPart<O>, J extends SoftHistoryChangeFeature<O, J>>
 		extends Feature<J, O, J>
 {
-	private String queryParameters;
+	private Map<String, String> queryParameters = new LinkedHashMap<>();
+	
 	private String documentTitle;
 	private String dataObject;
-
+	
 	public SoftHistoryChangeFeature()
 	{
 		super("SoftHistoryChangeFeature");
 	}
-
+	
 	@Override
 	public int hashCode()
 	{
 		return super.hashCode();
 	}
-
+	
 	@Override
 	public boolean equals(Object o)
 	{
 		return super.equals(o);
 	}
-
+	
 	@Override
 	protected void assignFunctionsToComponent()
 	{
@@ -58,23 +60,41 @@ public class SoftHistoryChangeFeature<O extends JavaScriptPart<O>, J extends Sof
 		sb.append(STRING_COMMNA);
 		sb.append(STRING_SINGLE_QUOTES)
 		  .append(CHAR_QUESTIONMARK)
-		  .append(queryParameters)
+		  .append(renderQueryParameters())
 		  .append(STRING_SINGLE_QUOTES);
-
+		
 		sb.append(");");
 		addQuery(sb.toString());
 	}
-
+	
+	public StringBuilder renderQueryParameters()
+	{
+		StringBuilder sb = new StringBuilder();
+		for (Map.Entry<String, String> entry : queryParameters.entrySet())
+		{
+			String key = entry.getKey();
+			String value = entry.getValue();
+			if (sb.length() != 0)
+			{
+				sb.append("&");
+			}
+			sb.append(key)
+			  .append(STRING_EQUALS)
+			  .append(value);
+		}
+		return sb;
+	}
+	
 	/**
 	 * Gets the query string associated
 	 *
 	 * @return
 	 */
-	public String getQueryParameters()
+	public Map<String, String> getQueryParameters()
 	{
 		return queryParameters;
 	}
-
+	
 	/**
 	 * Sets the query string associated
 	 *
@@ -82,12 +102,12 @@ public class SoftHistoryChangeFeature<O extends JavaScriptPart<O>, J extends Sof
 	 */
 	@SuppressWarnings("unchecked")
 	@NotNull
-	public J setQueryParameters(String queryParameters)
+	public J setQueryParameters(Map<String, String> queryParameters)
 	{
 		this.queryParameters = queryParameters;
 		return (J) this;
 	}
-
+	
 	/**
 	 * Sets the document title
 	 *
@@ -97,7 +117,7 @@ public class SoftHistoryChangeFeature<O extends JavaScriptPart<O>, J extends Sof
 	{
 		return documentTitle;
 	}
-
+	
 	/**
 	 * Sets the document title
 	 *
@@ -110,7 +130,7 @@ public class SoftHistoryChangeFeature<O extends JavaScriptPart<O>, J extends Sof
 		this.documentTitle = documentTitle;
 		return (J) this;
 	}
-
+	
 	/**
 	 * Gets the data object
 	 *
@@ -120,7 +140,7 @@ public class SoftHistoryChangeFeature<O extends JavaScriptPart<O>, J extends Sof
 	{
 		return dataObject;
 	}
-
+	
 	/**
 	 * Sets the data object
 	 *
