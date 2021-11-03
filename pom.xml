@@ -10,7 +10,7 @@
     <groupId>com.jwebmp.plugins.javascript</groupId>
     <artifactId>jwebmp-soft-history-change</artifactId>
     <packaging>jar</packaging>
-
+    <version>0.0.0_0-SNAPSHOT</version>
     <name>Soft History Change</name>
     <description>The JWebSwing implementation for Soft History Change</description>
     <url>https://github.com/GedMarc/JWebSwing-SoftHistoryChange</url>
