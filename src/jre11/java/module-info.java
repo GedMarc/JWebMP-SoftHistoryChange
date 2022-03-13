@@ -10,7 +10,7 @@ module com.jwebmp.plugins.softhistorychange {
 	requires jakarta.validation;
 	requires java.logging;
 	requires com.guicedee.guicedinjection;
-	requires com.jwebmp.core.angularjs;
+	requires com.jwebmp.core.angular;
 
 	provides com.jwebmp.core.services.IPageConfigurator with com.jwebmp.plugins.softhistorychange.SoftHistoryChangePageConfiguration;
 	provides com.guicedee.guicedinjection.interfaces.IGuiceScanModuleExclusions with com.jwebmp.plugins.softhistorychange.implementations.SoftHistoryChangeExclusionsModule;

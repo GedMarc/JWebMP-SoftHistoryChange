@@ -28,7 +28,7 @@
         </dependency>
         <dependency>
             <groupId>com.jwebmp.plugins.angular</groupId>
-            <artifactId>jwebmp-plugins-angularjs</artifactId>
+            <artifactId>angularts</artifactId>
             <type>jar</type>
         </dependency>
     </dependencies>
