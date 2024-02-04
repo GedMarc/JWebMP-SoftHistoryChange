@@ -5,7 +5,7 @@ module com.jwebmp.plugins.softhistorychange {
 	exports com.jwebmp.plugins.softhistorychange;
 
 	requires com.jwebmp.core;
-	requires com.guicedee.logmaster;
+	
 
 	requires jakarta.validation;
 	requires java.logging;
